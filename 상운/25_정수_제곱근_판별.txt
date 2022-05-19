@@ -1,0 +1,12 @@
+class Solution {
+    public long solution(long n) {
+        // n의 제곱근을 구한다.
+        long sqrt = (long) Math.sqrt(n);
+        // n의 제곱근 sqrt를 제곱하여 n과 같은지 비교한다.
+        if ((long) Math.pow(sqrt, 2) == n) {
+            // 같으면 (n의 제곱근 + 1)^2를 하여 반환한다.
+            return (long) Math.pow((sqrt + 1), 2);
+        }
+        return -1;
+    }
+}

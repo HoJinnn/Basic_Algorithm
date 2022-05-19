@@ -1,0 +1,17 @@
+class Solution {
+    // 1월 1일부터 3월 12일까지 일수 계산
+    public int numOfDays(int month, int day) {
+        int sum = 0;
+        int[] days = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        for (int i = 1; i < month; i++) sum += days[i];
+        sum += day;
+        return sum;
+    }
+    
+    public String solution(int a, int b) {
+        // 1월 1일부터 1월 5일까지 4일(5-1) --> 화요일 (TUE)
+        // 1월 1일부터 1월 10일까지 9일(10-1) --> 일요일 (SUN)
+        String[] dayOfWeek = {"FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"};
+        return dayOfWeek[(numOfDays(a, b) - numOfDays(1, 1)) % 7];
+    }
+}

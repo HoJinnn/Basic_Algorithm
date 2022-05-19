@@ -1,0 +1,13 @@
+import java.util.*;
+
+class Solution {
+    public List<Long> solution(long n) {      
+        List<Long> list = new ArrayList<>();
+        // 일의 자리를 분해해서 리스트에 넣으면 뒤집어 진다.
+        while (n > 0) {
+            list.add(n % 10);
+            n /= 10;
+        }
+        return list;
+    }
+}

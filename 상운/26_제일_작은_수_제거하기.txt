@@ -1,0 +1,25 @@
+import java.util.*;
+
+class Solution {
+    public List<Integer> solution(int[] arr) {
+        List<Integer> answer = new ArrayList<>();
+        
+        // 가장 작은 수 저장
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            min = Math.min(min, arr[i]);
+        }
+        
+        // 가장 작은 수만 제외하고 리스트에 저장
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == min) continue;
+            answer.add(arr[i]);
+        }
+        
+        // 비어있으면 -1
+        if (answer.isEmpty()) 
+            answer.add(-1);
+        
+        return answer;
+    }
+}

@@ -1,0 +1,13 @@
+class Solution {
+    public String ctos(char c) {
+        return String.valueOf(c);
+    }
+    public String solution(String s) {
+        int len = s.length();
+        if (s.length() % 2 == 0) {
+            return ctos(s.charAt(len / 2 - 1)) + ctos(s.charAt(len / 2));
+        } else {
+            return ctos(s.charAt(len / 2));
+        }
+    }
+}

@@ -21,7 +21,8 @@
   
 예시 출력 1
 1 2 3 3 5 6 7 9
-  
+
+풀이1 (내가 푼 풀이) 
 import java.util.*;
   
 public class Main {
@@ -30,6 +31,35 @@ public class Main {
     for(int i=0; i<n; i++) answer.add(arr1[i]);
     for(int i=0; i<m; i++) answer.add(arr2[i]);
     Collections.sort(answer);
+    return answer;
+  }
+  public static void main(String[] args){
+  	Main T = new Main();
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int[] arr1 = new int[n];
+    for(int i=0; i<n; i++) arr1[i] = sc.nextInt();
+    int m = sc.nextInt();
+    int[] arr2 = new int[m];
+    for(int i=0; i<m; i++) arr2[i] = sc.nextInt();
+    for(int x : T.solution(n, m, arr1, arr2))
+      System.out.print(x + " ");
+  }
+}
+
+풀이2 (강의 풀이)
+import java.util.*;
+  
+public class Main {
+  public List<Integer> solution(int n, int m, int[] arr1, int[] arr2){
+    List<Integer> answer = new ArrayList<>();
+    int p1 = 0, p2 = 0;
+    while(p1 < n && p2 < m){
+      if(arr1[p1] < arr2[p2]) answer.add(arr1[p1++]);
+      else answer.add(arr2[p2++]);
+    }
+    while(p1 < n) answer.add(arr1[p1++]);
+    while(p2 < m) answer.add(arr2[p2++]);
     return answer;
   }
   public static void main(String[] args){
